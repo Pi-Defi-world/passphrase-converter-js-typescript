@@ -1,0 +1,42 @@
+{
+  "name": "token-issuing",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "license": "ISC",
+  "scripts": {
+    "stable:init": "node stable/stablecoin-init.js",
+    "stable:mint": "node stable/stablecoin-mint.js",
+    "stable:redeem": "node stable/stablecoin-redeem.js",
+    "stable:stats": "node stable/stablecoin-stats.js"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/morgan": "^1.9.10",
+    "@types/node": "^24.6.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.18.0",
+    "@prisma/extension-accelerate": "^2.0.2",
+    "@stellar/stellar-sdk": "^13.3.0",
+    "axios": "^1.12.2",
+    "bip39": "^3.1.0",
+    "chalk": "^5.6.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "ed25519-hd-key": "^1.3.0",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.19.0",
+    "morgan": "^1.10.1",
+    "node-fetch": "^3.3.2",
+    "nodemon": "^3.1.10",
+    "prisma": "^6.18.0",
+    "stellar-hd-wallet": "^1.0.2"
+  }
+}
