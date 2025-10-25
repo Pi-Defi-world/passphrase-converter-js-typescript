@@ -1,6 +1,3 @@
-// logger.js
-// JavaScript version of the logger utility
-
 import chalk from 'chalk';
 
 const getTimestamp = () => new Date().toISOString();
