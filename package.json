@@ -5,10 +5,10 @@
   "main": "index.js",
   "license": "ISC",
   "scripts": {
-    "stable:init": "node stable/stablecoin-init.js",
-    "stable:mint": "node stable/stablecoin-mint.js",
-    "stable:redeem": "node stable/stablecoin-redeem.js",
-    "stable:stats": "node stable/stablecoin-stats.js"
+    "test": "pnpm run test:js && pnpm run test:ts",
+    "test:js": "node --test ./tests/passphrase-js.test.js",
+    "test:ts": "tsc --noEmit",
+    "example": "node ./example-usage.js"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",

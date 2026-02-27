@@ -4,7 +4,7 @@
 import StellarSdk from '@stellar/stellar-sdk';
 import * as bip39 from 'bip39';
 import { derivePath } from 'ed25519-hd-key';
-import { logger } from './logger.js';
+import { logger } from './logger/logger.js';
 import env from './config/env.js';
 
 /**

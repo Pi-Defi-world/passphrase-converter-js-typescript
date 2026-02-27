@@ -1,7 +1,7 @@
 import  StellarSdk from '@stellar/stellar-sdk';
 import * as bip39 from 'bip39';
 import { derivePath } from 'ed25519-hd-key';
-import { logger } from './logger.ts';
+import { logger } from './logger/logger.js';
 import env from './config/env.js';
 
 /**
@@ -19,7 +19,7 @@ const normalizeMnemonic = (mnemonic: string): string => {
  * @param expectedAddress - Optional expected wallet address for validation
  * @returns Promise<StellarSdk.Keypair> - The generated keypair
  */
-export const getKeypairFromMnemonic = async (mnemonic: string, expectedAddress?: string): Promise<typeof StellarSdk.Keypair> => {
+export const getKeypairFromMnemonic = async (mnemonic: string, expectedAddress?: string): Promise<StellarSdk.Keypair> => {
   
   // Step 1: Normalize mnemonic format
   logger.info('🔍 Normalizing passphrase format...');
@@ -36,8 +36,7 @@ export const getKeypairFromMnemonic = async (mnemonic: string, expectedAddress?:
   
   // Generate keypair using Pi Network BIP44 path
   const seed = await bip39.mnemonicToSeed(mnemonic);
-  //@ts-ignore
-  const { key } = derivePath(env.BIP44_PATH, seed as string);
+  const { key } = derivePath(env.BIP44_PATH, seed as any);
   const keypair = StellarSdk.Keypair.fromRawEd25519Seed(key);
 
   logger.success('✅ Derived keypair from mnemonic');
@@ -71,7 +70,7 @@ export const getKeypairFromMnemonic = async (mnemonic: string, expectedAddress?:
  * @param secret - The secret key string
  * @returns StellarSdk.Keypair - The keypair
  */
-export const getKeypairFromSecret = (secret: string): typeof StellarSdk.Keypair => {
+export const getKeypairFromSecret = (secret: string): StellarSdk.Keypair => {
   const keypair = StellarSdk.Keypair.fromSecret(secret);
   logger.info(`Loaded keypair from secret`);
   logger.info(`Public Key: ${keypair.publicKey()}`);
