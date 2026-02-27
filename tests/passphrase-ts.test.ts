@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { getKeypairFromMnemonic, getKeypairFromSecret } from '../passphrase.js';
 
 const MNEMONIC =
-  ' ';
+  'example example example example example example example example example example example example';
 
 function silenceConsole() {
   const original = { log: console.log, error: console.error };
